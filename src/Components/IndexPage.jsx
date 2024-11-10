@@ -20,7 +20,7 @@ function IndexPage() {
 
     return <>
 
-            {/* <Header/> */}
+            <Header/>
         <div className='d-flex flex-wrap row-cols-6 px-5 py-3 gap-5'>
             {places.length > 0 && places.map(place =>
                 <Link to={'/place/'+place._id} className='text-decoration-none text-black'>
