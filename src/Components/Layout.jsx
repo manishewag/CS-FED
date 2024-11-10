@@ -9,7 +9,7 @@ function Layout() {
   return (
     <div className='p-4 '>
         <Header/>
-        <IndexPage/>
+        {/* <IndexPage/> */}
         <Outlet/>
     </div>
   )
