@@ -19,6 +19,7 @@ function Login() {
         ev.preventDefault();
         try {
          const {data} = await axios.post('/login', {email,password});
+         localStorage.setItem("user", "id");
          setUser(data);
           alert('Login successful');
           setRedirect(true);
