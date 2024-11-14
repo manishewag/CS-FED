@@ -29,7 +29,6 @@ export default function BookingWidget({ place }) {
     }
 
     async function bookThisPlace() {
-        localStorage.getItem("user", "id")
         const response = await axios.post('/bookings', {
             checkIn,checkOut,numberOfGuests,name,phone,
             place:place._id,
