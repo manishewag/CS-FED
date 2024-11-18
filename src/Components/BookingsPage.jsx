@@ -14,10 +14,11 @@ export default function BookingsPage() {
 
   useEffect(() => {
     axios.get('/bookings').then(response => {
-      setBookings(response.data);
-    }, {headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-  }});
+      setBookings(response.data),
+      {headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      }}
+    });
   }, []);
 
 
