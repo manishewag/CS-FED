@@ -18,7 +18,9 @@ export default function BookingPage() {
         if (foundBooking) {
           setBooking(foundBooking);
         }
-      });
+      }, {headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+    }});
     }
   }, [id]);
 
