@@ -19,13 +19,15 @@ function Login() {
         ev.preventDefault();
         try {
          const {data} = await axios.post('/login', {email,password});
-         setUser(data);
+         localStorage.setItem("token","res.data.token")
+         setUser(data.token);
           alert('Login successful');
           setRedirect(true);
         } catch (e) {
           alert('Login failed');
         }
       }
+      
 
       if (redirect) {
         return <Navigate to={'/'} />

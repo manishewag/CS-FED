@@ -14,8 +14,8 @@ export default function BookingsPage() {
 
   useEffect(() => {
     axios.get('/bookings').then(response => {
-      // setBookings(response.data);
-      setBookings(response.data.booking._id);
+      setBookings(response.data);
+      // setBookings(response.data.booking._id);
     });
   }, []);
 

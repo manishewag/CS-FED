@@ -29,16 +29,15 @@ export default function BookingWidget({ place }) {
     }
 
     async function bookThisPlace() {
-        // console.log(token)
         const response = await axios.post('/bookings', {
             checkIn,checkOut,numberOfGuests,name,phone,
             place:place._id,
             price:numberOfNights * place.price,
-          });
-        //   ,headers: {
-        //     Authorization: `Bearer ${token}`,
-
-        // }
+          } 
+          , {headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }}
+    );
             // console.log(response.data.booking._id)
             const bookingId = response.data.booking._id;
         //   console.log("bookingId", bookingId);
