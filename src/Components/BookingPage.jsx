@@ -18,7 +18,7 @@ export default function BookingPage() {
         // const foundBooking = response.data.find(({_id}) => _id === id);
         const foundBooking = response.data.fillter((booking) => booking._id === id)
         if (foundBooking) {
-          setBooking(foundBooking);
+          setBooking(foundBooking[0]);
         //   {headers: {
         //     Authorization: `Bearer ${localStorage.getItem("token")}`,
         // }}
