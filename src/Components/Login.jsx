@@ -19,7 +19,7 @@ function Login() {
         ev.preventDefault();
         try {
          const {data} = await axios.post('/login', {email,password});
-         localStorage.setItem("token","res.data.token")
+         localStorage.setItem("id","res.data.id")
          setUser(data.token);
           alert('Login successful');
           setRedirect(true);
