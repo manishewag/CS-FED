@@ -20,7 +20,7 @@ function Login() {
         try {
          const {data} = await axios.post('/login', {email,password});
          localStorage.setItem("token",data.token)
-         setUser(data);
+         setUser(data.userDoc);
           alert('Login successful');
           setRedirect(true);
         } catch (e) {
