@@ -35,7 +35,7 @@ export default function BookingWidget({ place }) {
             price:numberOfNights * place.price,
           } 
           , {headers: {
-            Authorization: `Bearer ${localStorage.getItem("id")}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
         }}
     );
             // console.log(response.data.booking._id)
