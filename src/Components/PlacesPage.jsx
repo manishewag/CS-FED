@@ -15,9 +15,15 @@ export default function PlacesPage() {
      const [places, setPlaces] = useState([]);
 
     useEffect(() => {
-        axios.get('/user-places',{headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-        }}).then(({data}) => {
+        const config = {
+            method:"get",
+             url: '/user-places',
+             headers: {
+               'Authorization': `Bearer ${localStorage.getItem("token")}`,
+               'Content-Type': 'application/json',
+             }
+           }
+        axios.get(config).then(({data}) => {
             setPlaces(data);
         })
     },[]);
