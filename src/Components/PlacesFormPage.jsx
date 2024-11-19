@@ -80,9 +80,16 @@ export default function PlacesFormPage() {
             setRedirect(true);
         } else {
             // new place
-            await axios.post('/places', placeData, {headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              }});
+            const config = {
+                method:"get",
+                 url: '/places',
+                 headers: {
+                   'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                   'Content-Type': 'application/json',
+                 },
+                 data: placeData,
+               }
+            await axios(config);
             setRedirect(true);
         }
     }
