@@ -13,12 +13,11 @@ export default function BookingsPage() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    axios.get('/bookings').then(response => {
-      // setBookings(response.data),
-      setBookings(response.data.booking),
-      {headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      }}
+    axios.get('/bookings',{headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    }}).then(response => {
+      setBookings(response.data);
+      // setBookings(response.data.booking);
     });
   }, []);
 
