@@ -11,8 +11,16 @@ function IndexPage() {
 
     const [places, setPlaces] = useState([]);
 
-    useEffect(() => {
-        axios.get('/places').then(response => {
+    useEffect(() => 
+        {const config = {
+        method:"get",
+         url: '/places',
+         headers: {
+           'Authorization': `Bearer ${localStorage.getItem("token")}`,
+           'Content-Type': 'application/json',
+         }
+       }
+        axios.get(config).then(response => {
             setPlaces(response.data);
         })
     },[]);
