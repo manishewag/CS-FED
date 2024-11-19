@@ -81,7 +81,7 @@ export default function PlacesFormPage() {
         } else {
             // new place
             const config = {
-                method:"get",
+                method:"post",
                  url: '/places',
                  headers: {
                    'Authorization': `Bearer ${localStorage.getItem("token")}`,
