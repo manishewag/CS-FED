@@ -13,13 +13,13 @@ export default function BookingPage() {
    
   useEffect(() => {
     if (id) {
-      axios.get('/bookings').then(response => {
+      axios.get('/bookings',{headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+    }}).then(response => {
         const foundBooking = response.data.find(({_id}) => _id === id);
         if (foundBooking) {
-          setBooking(foundBooking),
-          {headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-        }}
+          setBooking(foundBooking);
+          
         }
       });
     }
