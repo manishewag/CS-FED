@@ -8,58 +8,27 @@ import BookingDates from "./BookingDates";
 
 
 export default function BookingPage() {
-  //   const {id} = useParams();
-  //   // const [booking,setBooking] = useState(null);
-  //   const [booking, setBooking] = useState({});
+    const {id} = useParams();
+    const [booking,setBooking] = useState(null);
    
-  // useEffect(() => {
-  //   if (id) {
-  //     axios.get('/bookings').then(response => {
-  //       // const foundBooking = response.data.find(({_id}) => _id === id);
-  //       const foundBooking = response.data.fillter(({booking}) => booking._id === id)
-  //       if (foundBooking) {
-  //         setBooking(foundBooking[0]);
-  //       //   {headers: {
-  //       //     Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //       // }}
-  //       }
-  //     });
-  //   }
-  // }, [id]);
-
-  // if (!booking) {
-  //   return '';
-  // }
-
-  const { id } = useParams();
-  const [booking, setBooking] = useState({});
-  const [loading, setLoading] = useState(false);
-
-  const getBookings = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get('/bookings');
-
-      // filter the data to get current booking
-      const filteredBooking = data.booking.filter(
-        (booking) => booking._id === id,
-      );
-
-      setBooking(filteredBooking[0]);
-    } catch (error) {
-      console.log('Error: ', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    getBookings();
+    if (id) {
+      axios.get('/bookings').then(response => {
+        const foundBooking = response.data.token.find(({_id}) => _id === id);
+        if (foundBooking) {
+          setBooking(foundBooking),
+          {headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }}
+        }
+      });
+    }
   }, [id]);
 
-  if (loading) {
+  if (!booking) {
     return '';
   }
+
 
 
   return (
