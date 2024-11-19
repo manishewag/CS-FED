@@ -75,13 +75,12 @@ export default function PlacesFormPage() {
             // update
             await axios.put('/places', {
                 id, ...placeData
-
             });
             setRedirect(true);
         } else {
             // new place
             const config = {
-                method:"post",
+                method:"get",
                  url: '/places',
                  headers: {
                    'Authorization': `Bearer ${localStorage.getItem("token")}`,
